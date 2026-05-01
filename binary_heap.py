@@ -1,6 +1,7 @@
 class BinaryHeap:
     def __init__(self):
         self._heap = []
+        self._trocas = 0
 
     def __len__(self):
         return len(self._heap)
@@ -8,6 +9,7 @@ class BinaryHeap:
     def _trocar(self, i, j):
         print(f"troca: {self._heap[i]} (pos {i}) <-> {self._heap[j]} (pos {j})")
         self._heap[i], self._heap[j] = self._heap[j], self._heap[i]
+        self._trocas += 1
 
     def _get_pai_index(self, index):
         """ O indice do pai de um elemento é dado pela divisão inteira de indice_filho - 1 por 2."""
