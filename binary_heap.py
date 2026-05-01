@@ -79,6 +79,14 @@ class BinaryHeap:
         """ Verifica se um valor está presente na heap. """
         return valor in self._heap
 
+    # build_heap
+    def build_heap(self, array):
+        """ Constrói a heap a partir de um array, aplicando _heapify_desce dos nós internos até a raiz. """
+        self._heap = list(array)
+        ultimo_pai = (len(self._heap) // 2) - 1
+        for i in range(ultimo_pai, -1, -1):
+            self._heapify_desce(i)
+
     # delete
     def deletar(self, valor):
         try:
