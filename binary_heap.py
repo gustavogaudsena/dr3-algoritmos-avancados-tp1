@@ -7,7 +7,7 @@ class BinaryHeap:
         return len(self._heap)
 
     def _trocar(self, i, j):
-        print(f"troca: {self._heap[i]} (pos {i}) <-> {self._heap[j]} (pos {j})")
+        # print(f"troca: {self._heap[i]} (pos {i}) <-> {self._heap[j]} (pos {j})")
         self._heap[i], self._heap[j] = self._heap[j], self._heap[i]
         self._trocas += 1
 
