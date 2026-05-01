@@ -73,6 +73,11 @@ class BinaryHeap:
         while index < tamanho:
             print(self._heap[index], end=' ')
             index += 1
+    
+    # contains
+    def contem(self, valor):
+        """ Verifica se um valor está presente na heap. """
+        return valor in self._heap
 
 
 if __name__ == "__main__":
