@@ -79,6 +79,22 @@ class BinaryHeap:
         """ Verifica se um valor está presente na heap. """
         return valor in self._heap
 
+    # delete
+    def deletar(self, valor):
+        try:
+            index = self._heap.index(valor)
+        except ValueError:
+            return False
+                
+        if index == len(self._heap) - 1:
+            self._heap.pop()
+            return True
+        
+        self._heap[index] = self._heap.pop()
+        
+        self._heapify_sobe(index)
+        self._heapify_desce(index)
+        return True
 
 if __name__ == "__main__":
     heap = BinaryHeap()
@@ -117,3 +133,24 @@ if __name__ == "__main__":
         
     print("\nValores extraídos em ordem:")
     print(valores_extraidos)
+    
+    # Teste de deleção
+    print("\nTeste de deleção:")
+    heap = BinaryHeap()
+    print("\nInserindo elementos na heap:")
+    for i in elementos:
+        heap.inserir(i)
+    print("Inserção finalizada")
+
+    print("\nElementos da heap antes da deleção:")
+    heap.imprimir()
+    
+    valor_para_deletar = [25, 7, 100]
+    for valor in valor_para_deletar:
+        print(f"\n\nDeletando valor: {valor}")
+        if heap.deletar(valor):
+            print(f"Valor {valor} deletado com sucesso.")
+        else:
+            print(f"Valor {valor} não encontrado na heap.")
+        print("Elementos da heap após a deleção:")
+        heap.imprimir()
